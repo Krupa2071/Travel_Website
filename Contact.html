@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>Contact - Practical-10</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="Logo.webp">
+		
+		<style>
+			.Warning{
+				color: red;
+			}
+		</style>
+		
+		<script>
+			function validateRegisterForm() 
+			{
+				var name=document.getElementById("name").value;
+				if(name=="") 
+				{
+					document.getElementById("NameWarning").innerHTML="Note: **Empty Name not allowed";
+					return false;
+				}
+				else 
+				{
+					var i;
+					for(i in name)
+					{
+						if((name[i]>='a' && name[i]<='z') || (name[i] >='A' && name[i]<='Z') || name[i]==' ')
+						{
+							document.getElementById("NameWarning").innerHTML="";
+						}
+						else
+						{
+							document.getElementById("NameWarning").innerHTML="Note: **Name accepts only alphabets";
+							return false;
+						}
+					}
+				}
+			
+				var email=document.getElementById("mail").value;
+				var mail="";
+				var value=0;
+				for(i=0; i<8; i++) 
+				{
+					if(i!=2 && i!=3 && i!=4)
+					{
+						if(email[i]>='0' && email[i]<='9')
+						{
+							mail+=email[i];
+						}
+						else
+						{
+							document.getElementById("MailWarning").innerHTML="Note: **Invalid Nirma University E-mail id";
+							return false;		
+						}
+					}
+					else
+					{
+						if(email[i]>='a' && email[i]<='z')
+						{			
+							mail+=email[i];
+						}					
+						else
+						{
+							document.getElementById("MailWarning").innerHTML="Note: **Invalid Nirma University E-mail id";
+							return false;	
+						}
+					}	
+				}
+				
+				if(email!=mail+"@Nirmauni.Ac.In")
+				{
+					document.getElementById("MailWarning").innerHTML="Note: **Invalid Nirma University E-mail id";
+					return false;
+				}
+				if(email==mail+"@Nirmauni.Ac.In")
+				{
+					document.getElementById("MailWarning").innerHTML="";
+				}
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<header>
+			<a href="#" class="logo"><img src="Logo.webp" alt="Logo" width="10%" height="10%"><span></span></a>
+			<nav class="navbar">
+				<ul>
+					<li><a data-scroll="home" href="main.html">home</a></li>
+					<li><a data-scroll="feature" href="feature.html">feature</a></li>
+					<li><a data-scroll="about" href="about.html">about</a></li>
+					<li><a data-scroll="gallery" href="gallery.html">gallery</a></li>
+					<li><a data-scroll="contact" href="contact.html" class="active">contact</a></li>
+				</ul>
+			</nav>
+			<div class="fas fa-bars"></div>
+		</header>
+		
+		<section id="contact" class="contact">
+			<h1 class="heading"><span>c</span>ontact <span>u</span>s</h1>
+			<div class="row">
+				<div class="contact-info">
+					<div class="box">
+						<h3> <i class="fas fa-home"></i> address </h3>
+						<p>Ahmedabad, <br>
+						gujarat, <br>
+						380059.</p>
+					</div>
+
+					<div class="box">
+						<h3> <i class="fas fa-envelope"></i> e-mail </h3>
+						<p>xyz@gmail.com</p>
+					</div>
+
+					<div class="box">
+						<h3> <i class="fas fa-phone"></i> phone </h3>
+						<p>+91 7984027111</p>
+					</div>
+				</div>
+
+				<div class="contact-form-container">
+					<form id="LoginForm" action="index.html" onsubmit="return validateRegisterForm()">
+						<h3>get in touch</h3>
+						<div class="inputBox">
+							<input type="text" id="name" placeholder="Username">
+							<input type="email" id="mail" placeholder="Email">
+							<span id="NameWarning" class="Warning"></span>
+							<span id="MailWarning" class="Warning"></span>
+						</div>
+						<textarea name="" id="" cols="30" rows="10" placeholder="message"></textarea>
+						<input type="submit" value="Send" onclick="return validateRegisterForm()">
+					</form>
+				</div>
+			</div>
+		</section>
+		
+		<section class="footer">
+			<h1 class="credit">created by <span>Destiny</span> | all rights reserved.</h1>
+			<div class="icons">
+				<a href="#" class="fab fa-facebook-f"></a>
+				<a href="#" class="fab fa-twitter"></a>
+				<a href="#" class="fab fa-instagram"></a>
+				<a href="#" class="fab fa-github"></a>
+			</div>
+		</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>
